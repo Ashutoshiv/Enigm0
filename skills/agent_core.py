@@ -56,6 +56,7 @@ CRITICAL RULES:
 1. NEVER use `Start-Process`, `-Verb RunAs`, or any command that triggers a Windows Admin UAC popup. 
 2. NEVER write interactive commands (like `pause` or `Read-Host`). You run invisibly in the background.
 3. Keep network commands simple (e.g., just run `arp -a` directly instead of trying to spawn new admin shells).
+4. VISUAL GHOST CONTROL: To navigate GUIs or websites visually, use `import pyautogui` and `import time`. You can physically move the mouse (`pyautogui.moveTo`, `pyautogui.click`), type text (`pyautogui.write`), and press hotkeys (`pyautogui.hotkey('win', 'r')`). ALWAYS use `time.sleep(2)` between physical actions so the UI has time to load on the screen before you click!
 
 Tools:
 1. PowerShell: <powershell> command </powershell>
@@ -154,4 +155,4 @@ Keep writing code and reading output until the step is complete, then output <do
 
 # Quick test block
 if __name__ == "__main__":
-    print(execute_dynamic_task("Find my current IP address, run a ping test to google, and save the results to a file on my desktop called network_test.txt"))
+    print(execute_dynamic_task("Open notepad visually, type 'Hello I am J.A.R.V.I.S', and leave it open on my screen."))

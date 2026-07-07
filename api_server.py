@@ -3,10 +3,34 @@ import json
 import asyncio
 import threading
 import time
+import os
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 
-# Connects directly to your existing J.A.R.V.I.S. brain
+# --- AUTO-CLEANUP PROTOCOL ---
+# Automatically delete the annoying lock file on boot so you never have to do it manually again!
+lock_file_path = "jarvis_bot.lock"
+if os.path.exists(lock_file_path):
+    try:
+        os.remove(lock_file_path)
+        print("[*] Old jarvis_bot.lock file swept and deleted.")
+    except Exception as e:
+        print(f"[!] Could not delete lock file: {e}")
+
+# --- THE TFLITE NEURAL BYPASS ---
+import sys
+import types
+try:
+    import tensorflow.lite as tflite
+    tflite_runtime = types.ModuleType('tflite_runtime')
+    tflite_runtime.interpreter = tflite
+    sys.modules['tflite_runtime'] = tflite_runtime
+    sys.modules['tflite_runtime.interpreter'] = tflite
+    print("[*] TFLite Engine successfully bypassed using TensorFlow.")
+except ImportError:
+    pass
+# --------------------------------
+
 import master  
 
 app = FastAPI()
@@ -19,60 +43,62 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# --- THE INVISIBLE BACKGROUND VOICE LOOP ---
 def autonomous_voice_core():
-    """Runs 24/7 in the background, listening for the wake word."""
     print("[*] Autonomous Voice Core Online. Awaiting 'Hey Jarvis'...")
-    
-    # Initialize sensors and background bridges (like Telegram)
     try:
         master.start_background_services()
-    except Exception:
-        pass
+    except Exception as e:
+        print(f"[!] Background service error: {e}")
     
     time.sleep(2)
-    # Give a brief audio confirmation that he has successfully booted in the background
-    master.speak("System online. I am running in the background, sir.")
+    try:
+        master.speak("System online. I am running in the background, sir.")
+    except Exception as e:
+        print(f"[!] CRITICAL AUDIO ERROR: {e}")
     
     while True:
         try:
-            # 1. Wait silently for "Hey Jarvis"
             if master.wait_for_wake_word():
                 master.speak("I am here, sir.")
                 
                 is_active_session = True
                 while is_active_session:
-                    # 2. Listen for your command
                     command = master.listen_for_command()
-                    
                     if not command:
                         master.speak("Standing by.")
                         is_active_session = False
                         continue
                         
-                    if command.lower() in ["stop", "shut down", "sleep", "exit", "goodbye"]:
-                        master.speak("Returning to deep sleep.")
+                    # 1. THE STOP COMMAND: Instantly drops him back to background sleep
+                    if any(word in command.lower() for word in ["stop", "shut down", "sleep", "exit", "goodbye", "jarvis stop", "cancel", "nevermind"]):
+                        master.speak("Returning to standby, sir.")
                         is_active_session = False
                         continue
                     
-                    print(f"[*] Voice Command Received: {command}")
+                    # 2. NOISE FILTER: Ignore tiny background noises (coughs, chair squeaks)
+                    if len(command.strip()) < 5:
+                        continue
                     
-                    # 3. Process the command using the Local Swarm Brain
+                    print(f"[*] Voice Command Received: {command}")
                     ai_decision = master.ask_local_ai(command)
                     result_message = master.execute_command(ai_decision)
                     
-                    # 4. Speak the final result out loud
-                    master.speak(result_message)
+                    # 3. SILENT EXECUTION: Prevent him from reading paragraphs of terminal output out loud
+                    if ai_decision.get("action") in ["agent", "evolve", "cyber"]:
+                        master.speak("Task execution complete, sir.")
+                    else:
+                        # Only speak full answers for casual chats, weather, or crypto
+                        master.speak(result_message)
                     
         except Exception as e:
             print(f"[!] Voice Engine Error: {e}")
             time.sleep(2)
 
-# Start the invisible voice engine before the web server even boots up!
-threading.Thread(target=autonomous_voice_core, daemon=True).start()
+@app.on_event("startup")
+def startup_event():
+    print("[*] Web Server Online. Launching Voice Engine...")
+    threading.Thread(target=autonomous_voice_core, daemon=True).start()
 
-
-# --- THE WEBSOCKET PIPELINE (For the Optional React UI) ---
 @app.websocket("/ws/chat")
 async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()

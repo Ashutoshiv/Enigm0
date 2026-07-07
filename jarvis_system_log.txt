@@ -1,0 +1,164 @@
+[*] Old jarvis_bot.lock file swept and deleted.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1783460497.235860   19644 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1783460508.367225   19644 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+[*] TFLite Engine successfully bypassed using TensorFlow.
+C:\Users\ashut\Enigm0\venv\Lib\site-packages\pygame\pkgdata.py:25: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import resource_stream, resource_exists
+pygame 2.6.1 (SDL 2.28.4, Python 3.12.10)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+[*] Neural Voice Engine (Cloud TTS) Initialized.
+[*] Vision Core Initialized. Starting Continuous Optical Stream...
+C:\Users\ashut\Enigm0\api_server.py:97: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("startup")
+[*] J.A.R.V.I.S. Nexus API Online (Port 8000)
+INFO:     Started server process [21744]
+INFO:     Waiting for application startup.
+[*] Web Server Online. Launching Voice Engine...
+[*] Autonomous Voice Core Online. Awaiting 'Hey Jarvis'...
+INFO:     Application startup complete.
+[*] Omni-Logger initialized. J.A.R.V.I.S. is now passively observing your digital environment.
+
+[Omni-Logger] [03:11 AM] User switched to application/tab: C:\Users\ashut\OneDrive\Documents\Rainmeter\Skins\BigSur\Shortcuts\BattleNet\Item3.iniINFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+
+[*] Mobile Bridge Initialized. Connecting to Telegram servers...
+[*] Mobile Bridge is now actively listening in the background.
+[*] Mobile Bridge Online. Telegram bot listening in background.
+
+[Omni-Logger] [03:11 AM] User copied text to clipboard: 'import uvicorn
+import json
+import asyncio
+import threading
+import time
+import os
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect
+fr...'
+
+Enigm0: System online. I am running in the background, sir.
+
+[Zzz...] Loading OpenWakeWord Model...
+C:\Users\ashut\Enigm0\venv\Lib\site-packages\tensorflow\lite\python\interpreter.py:457: UserWarning:     Warning: tf.lite.Interpreter is deprecated and is scheduled for deletion in
+    TF 2.20. Please use the LiteRT interpreter from the ai_edge_litert package.
+    See the [migration guide](https://ai.google.dev/edge/litert/migration)
+    for details.
+    
+  warnings.warn(_INTERPRETER_DELETION_WARNING)
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+
+[Zzz...] Hardware Ghost Loop Active. Say 'Hey Jarvis' to wake me...
+
+[!] WAKE WORD DETECTED [!]
+
+Enigm0: I am here, sir.
+
+[>>>] J.A.R.V.I.S. IS LISTENING... [<<<]
+[*] Processing audio in RAM with Whisper-Large-v3...
+[User]: Actually...
+[*] Voice Command Received: Actually...
+
+Enigm0: It seems like you're about to ask something. Please go ahead and I'll do my best to assist you.
+
+[>>>] J.A.R.V.I.S. IS LISTENING... [<<<]
+[*] Processing audio in RAM with Whisper-Large-v3...
+[User]: J.A.R.V.I.S. Stop.
+
+Enigm0: Returning to standby, sir.
+
+[Zzz...] Loading OpenWakeWord Model...
+
+[Zzz...] Hardware Ghost Loop Active. Say 'Hey Jarvis' to wake me...
+
+[!] WAKE WORD DETECTED [!]
+
+Enigm0: I am here, sir.
+
+[>>>] J.A.R.V.I.S. IS LISTENING... [<<<]
+[*] Processing audio in RAM with Whisper-Large-v3...
+[User]: Let's open YouTube.
+[*] Voice Command Received: Let's open YouTube.
+
+Enigm0: Opening https://www.youtube.com.
+
+[Omni-Logger] [03:13 AM] User switched to application/tab: YouTube - Google Chrome
+
+[Omni-Logger] [03:13 AM] User switched to application/tab: (69) YouTube - Google Chrome
+
+[>>>] J.A.R.V.I.S. IS LISTENING... [<<<]
+[*] Processing audio in RAM with Whisper-Large-v3...
+[User]: Now play TMK OC episode number 1024.
+[*] Voice Command Received: Now play TMK OC episode number 1024.
+
+Enigm0: Opening https://www.youtube.com/results?search_query=TMK+OC+episode+1024.
+
+[Omni-Logger] [03:13 AM] User switched to application/tab: youtube.com/results?search_query=TMK+OC+episode+1024 - Google Chrome
+
+[Omni-Logger] [03:13 AM] User switched to application/tab: (69) TMK OC episode 1024 - YouTube - Google Chrome
+
+[>>>] J.A.R.V.I.S. IS LISTENING... [<<<]
+[*] Processing audio in RAM with Whisper-Large-v3...
+[User]: Play this video.
+[*] Voice Command Received: Play this video.
+
+Enigm0: Opening https://www.youtube.com/results?search_query=TMK+OC+episode+1024.
+
+[Omni-Logger] [03:13 AM] User switched to application/tab: youtube.com/results?search_query=TMK+OC+episode+1024 - Google Chrome
+
+[Omni-Logger] [03:13 AM] User switched to application/tab: TMK OC episode 1024 - YouTube - Google Chrome
+
+[Omni-Logger] [03:13 AM] User switched to application/tab: (69) TMK OC episode 1024 - YouTube - Google Chrome
+
+[>>>] J.A.R.V.I.S. IS LISTENING... [<<<]
+[*] Processing audio in RAM with Whisper-Large-v3...
+[User]: Just play the first video.
+[*] Voice Command Received: Just play the first video.
+
+Enigm0: Opening https://www.youtube.com/results?search_query=TMK+OC+episode+1024.
+
+[Omni-Logger] [03:14 AM] User switched to application/tab: youtube.com/results?search_query=TMK+OC+episode+1024 - Google Chrome
+
+[Omni-Logger] [03:14 AM] User switched to application/tab: TMK OC episode 1024 - YouTube - Google Chrome
+
+[Omni-Logger] [03:14 AM] User switched to application/tab: (69) TMK OC episode 1024 - YouTube - Google Chrome
+
+[>>>] J.A.R.V.I.S. IS LISTENING... [<<<]
+[*] Processing audio in RAM with Whisper-Large-v3...
+[User]: Thank you for watching.
+[*] Voice Command Received: Thank you for watching.
+
+Enigm0: You're welcome, it was my pleasure to assist you. Is there anything else I can help you with?
+
+[>>>] J.A.R.V.I.S. IS LISTENING... [<<<]
+[*] Processing audio in RAM with Whisper-Large-v3...
+[User]: J.A.R.V.I.S. Stop.
+
+Enigm0: Returning to standby, sir.
+
+[Zzz...] Loading OpenWakeWord Model...
+
+[Zzz...] Hardware Ghost Loop Active. Say 'Hey Jarvis' to wake me...
+
+[Omni-Logger] [03:14 AM] User switched to application/tab: Building a Local AI Assistant - Google Gemini - Google Chrome
+
+[Omni-Logger] [03:14 AM] User switched to application/tab: api_server.py - Enigm0 - Visual Studio Code
+
+[Omni-Logger] [03:15 AM] User switched to application/tab: jarvis_system_log.txt - Enigm0 - Visual Studio Code
+
+[Omni-Logger] [03:15 AM] User copied text to clipboard: '[*] Old jarvis_bot.lock file swept and deleted.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1...'
+
+[Omni-Logger] [03:15 AM] User switched to application/tab: Building a Local AI Assistant - Google Gemini - Google Chrome
+
+[Omni-Logger] [03:20 AM] User copied text to clipboard: '# ... existing code ...
+def ask_local_ai(user_command):
+    global active_chat_history
+    past_context = memory_core.recall_memory(user_command)
+...'
+
+[Omni-Logger] [03:25 AM] User switched to application/tab: jarvis_system_log.txt - Enigm0 - Visual Studio Code

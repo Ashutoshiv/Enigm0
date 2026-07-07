@@ -193,15 +193,17 @@ def ask_local_ai(user_command):
         "Analyze the user's intent and respond ONLY with a valid JSON object containing an 'action' and a 'target'. "
         "Valid actions: 'open', 'type', 'remember', 'chat', 'vision', 'api', 'agent', 'cyber', 'cve', or 'evolve'. "
         "Rules: "
-        "1. GENERAL PC CONTROL/CODING/TASKS: action='agent', target=exact instructions. "
-        "2. UPGRADE/REWRITE SYSTEM SOURCE CODE: action='evolve', target=what to build/fix. "
-        "3. Live Crypto Price: action='api', target='crypto:<coin_name>'. "
-        "4. Live Weather: action='api', target='weather:<city_name>'. "
-        "5. General Web Search: action='api', target='search:<query>'. "
-        "6. Look at screen/What do you see: action='vision', target=the user's question. "
-        "7. CYBERSECURITY/HACKING CONCEPTS (OWASP/MITRE): action='cyber', target=question. "
-        "8. SPECIFIC VULNERABILITIES (NVD/CVSS): action='cve', target=query. "
-        "9. General Conversation / Advice: action='chat', target=your intelligent, conversational response based on the chat history. "
+        "1. SCREEN CONTROL (Clicking, scrolling, playing videos on screen): action='agent', target='Use pyautogui to press Tab multiple times and Enter to play the video.' "
+        "2. GENERAL PC CONTROL/CODING: action='agent', target=exact instructions. "
+        "3. OPENING A BRAND NEW WEBSITE OR APP: action='open', target='www.url.com' or 'app_name'. (Do NOT use this to interact with a page already open). "
+        "4. UPGRADE/REWRITE SYSTEM SOURCE CODE: action='evolve', target=what to build/fix. "
+        "5. Live Crypto Price: action='api', target='crypto:<coin_name>'. "
+        "6. Live Weather: action='api', target='weather:<city_name>'. "
+        "7. General Web Search: action='api', target='search:<query>'. "
+        "8. Look at screen/What do you see: action='vision', target=the user's question. "
+        "9. CYBERSECURITY/HACKING CONCEPTS (OWASP/MITRE): action='cyber', target=question. "
+        "10. SPECIFIC VULNERABILITIES (NVD/CVSS): action='cve', target=query. "
+        "11. General Conversation / Advice: action='chat', target=your intelligent, conversational response. "
         f"Relevant permanent memory: {past_context}"
     )
     
@@ -236,6 +238,7 @@ def ask_local_ai(user_command):
         return {"action": "chat", "target": "I encountered an error in my neural routing system."}
 
 # --- THE HANDS (Execution Engine) ---
+# ... existing code ...
 def execute_command(ai_response):
     if not ai_response:
         return "I had trouble thinking about that."
